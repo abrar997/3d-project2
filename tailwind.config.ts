@@ -10,11 +10,15 @@ const config: Config = {
     extend: {
       fontFamily: {
         header: '"Libre Baskerville", serif',
-        title: ' "Patua One"',
+        title: '"Patua One",serif',
       },
       colors: {
-        main: "#b6b5b5",
+        main: "#eee",
         secondary: "#16A34A",
+        text: "#D1D5DB",
+      },
+      fontSize: {
+        paragraph: "16px",
       },
     },
   },
