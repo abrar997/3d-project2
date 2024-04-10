@@ -59,9 +59,9 @@ export default function First() {
   };
   return (
     <div>
-      <div className="lg:flex grid gap-12 lg:py-12 lg:gap-0 justify-between items-center">
+      <div className="lg:flex grid gap-12 lg:pt-12 lg:gap-0 justify-between items-center">
         <div className="grid lg:gap-3 gap-1">
-          <h2 className="text-2xl text-secondary font-title gap-2 flex items-center">
+          <h2 className="lg:text-2xl text-secondary gap-2 flex items-center">
             Welcome ,
           </h2>
           <h1 className="lg:text-7xl text-4xl font-bold  whitespace-nowrap font-title">

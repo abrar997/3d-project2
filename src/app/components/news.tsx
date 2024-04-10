@@ -1,11 +1,17 @@
 import { PiPlant } from "react-icons/pi";
 
-export default function About() {
+export default function News() {
   return (
     <div className="grid lg:grid-cols-4 gap-4 lg:gap-12 lg:items-end">
+      <div className="col-span-2">
+        <img
+          src="https://images.unsplash.com/photo-1607296393394-6e25d0fc15cc?q=80&w=2018&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          className="lg:h-[420px] rounded lg:rounded-tr-full lg:rounded-br-xl border-2 lg:border border-secondary brightness-75 p-4"
+        />
+      </div>
       <div className="col-span-2 flex flex-col gap-2">
         <div className="flex flex-col gap-1">
-          <h2 className="text-secondary">About Us</h2>
+          <h2 className="text-secondary">Events and News</h2>
           <h1 className="lg:text-4xl text-3xl font-header capitalize flex gap-1">
             Let's tell you our story <PiPlant className="text-sm" />
           </h1>
@@ -25,12 +31,6 @@ export default function About() {
           to come. Welcome to <span className="text-secondary">FA</span>, where
           your love for plants meets our passion for excellence.
         </p>
-      </div>
-      <div className="col-span-2">
-        <img
-          src="https://images.unsplash.com/photo-1524492514790-8310bf594ea4?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          className="lg:h-[420px] rounded lg:rounded-tl-full lg:border border-2 border-secondary brightness-75 p-4"
-        />
       </div>
     </div>
   );
