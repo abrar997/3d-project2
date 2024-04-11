@@ -64,13 +64,13 @@ export default function First() {
           <h2 className="lg:text-2xl text-secondary gap-2 flex items-center">
             Welcome ,
           </h2>
-          <h1 className="lg:text-7xl text-4xl font-bold  whitespace-nowrap font-title">
-            FA Nursery
+          <h1 className="lg:text-7xl text-4xl capitalize font-bold whitespace-nowrap font-title">
+            FA plant nursery
           </h1>
           <p className="text-sm lg:text-paragraph text-text lg:leading-6">
-            From our cozy classrooms to our lush outdoor spaces, every corner of
-            our nursery is designed with your child's growth and development in
-            mind.
+            Sustainable practices, including water conservation, organic growing
+            methods, and minimizing waste, are increasingly important
+            considerations for modern plant nurseries
           </p>
         </div>
         <div className="h-full w-full">

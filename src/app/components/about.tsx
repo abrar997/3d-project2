@@ -3,10 +3,10 @@ import { PiPlant } from "react-icons/pi";
 export default function About() {
   return (
     <div className="grid lg:grid-cols-4 gap-4 lg:gap-12 lg:items-end">
-      <div className="col-span-2 flex flex-col gap-2">
+      <div className="col-span-2 flex flex-col lg:gap-2">
         <div className="flex flex-col gap-1">
           <h2 className="text-secondary">About Us</h2>
-          <h1 className="lg:text-4xl text-3xl font-header capitalize flex gap-1">
+          <h1 className="lg:text-4xl text-2xl font-header capitalize flex gap-1">
             Let's tell you our story <PiPlant className="text-sm" />
           </h1>
         </div>
@@ -17,13 +17,7 @@ export default function About() {
           plants carefully curated to suit every taste and need. Whether you're
           an experienced gardener or just starting your green journey, our team
           of experts is here to provide guidance and support every step of the
-          way. From vibrant indoor plants to lush outdoor landscapes, we strive
-          to inspire and empower our customers to create thriving green spaces
-          that enhance their homes and lives. With a focus on sustainability and
-          environmental stewardship, we aim to foster a deeper connection to the
-          natural world and promote a greener, healthier planet for generations
-          to come. Welcome to <span className="text-secondary">FA</span>, where
-          your love for plants meets our passion for excellence.
+          way.
         </p>
       </div>
       <div className="col-span-2">

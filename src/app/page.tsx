@@ -3,7 +3,10 @@ import First from "./components/first";
 import Header from "./components/header";
 import Features from "./components/features";
 import About from "./components/about";
-import News from "./components/news";
+import Events from "./components/events";
+import WorkShops from "./components/workshops";
+import FAQ from "./components/faq";
+import Contact from "./components/contact";
 
 export default function Page() {
   return (
@@ -13,7 +16,10 @@ export default function Page() {
         <First />
         <Features />
         <About />
-        <News />
+        <Events />
+        <WorkShops />
+        <FAQ />
+        <Contact />
       </div>
     </div>
   );
