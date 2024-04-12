@@ -47,7 +47,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="grid lg:px-12 gap-4 lg:gap-10">
+    <div className="grid gap-4 lg:gap-10">
       <div className="grid lg:gap-2 lg:items-center lg:justify-center lg:text-center">
         <h2 className="text-secondary text-sm">learn more about </h2>
         <h1 className="lg:text-4xl text-2xl text-main font-header flex lg:text-center capitalize">
@@ -59,14 +59,16 @@ export default function FAQ() {
           return (
             <Popover
               key={item.id}
-              className={`rounded border lg:border-b border-secondary transition-all duration-300  grid gap-3 py-2 lg:py-3 px-2`}
+              className="rounded border lg:border-b border-gray-500 transition-all duration-300 grid gap-3 py-2 lg:py-4 px-2"
             >
               <Popover.Button
                 onClick={() => OpenItem(item.id)}
                 className="focus:outline-none"
               >
                 <div className="flex justify-between pr-2 items-start">
-                  <p className="text-slate-300 text-left">{item.title}</p>
+                  <p className="text-slate-300 lg:text-paragraph text-sm text-left">
+                    {item.title}
+                  </p>
                   <span>
                     <PiPlant />
                   </span>
@@ -82,7 +84,7 @@ export default function FAQ() {
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-1"
                 >
-                  <Popover.Panel className="text-sm text-gray-400">
+                  <Popover.Panel className="text-sm text-gray-400 lg:py-4 py-2">
                     {item.description}
                   </Popover.Panel>
                 </Transition>

@@ -11,7 +11,7 @@ const data = [
   { id: 2, text: "Delivery and shipping", icon: <GiPlantSeed /> },
   { id: 3, text: "Garden supplies", icon: <GiFlowerPot /> },
   { id: 4, text: "Variety of plants", icon: <GiStumpRegrowth /> },
-  { id: 4, text: "Care of plants", icon: <TbGrowth /> },
+  { id: 5, text: "Care of plants", icon: <TbGrowth /> },
 ];
 export default function Features() {
   return (

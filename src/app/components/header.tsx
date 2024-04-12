@@ -7,7 +7,7 @@ const links = [
   { id: 4, name: "Events", path: "faq" },
   { id: 5, name: "Workshops", path: "" },
   { id: 6, name: "FAQ", path: "" },
-  { id: 5, name: "Contact us", path: "" },
+  { id: 7, name: "Contact us", path: "" },
 ];
 export default function Header() {
   return (

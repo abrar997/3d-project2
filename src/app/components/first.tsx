@@ -10,8 +10,8 @@ export default function First() {
   useEffect(() => {
     async function RenderScene() {
       if (canvasRef.current) {
-        engineRef.current = new BABYLON.Engine(canvasRef.current);
-        sceneRef.current = await createScene();
+        engineRef.current = new BABYLON.Engine(canvasRef.current, true);
+        sceneRef.current = await createScene(engineRef.current);
       }
       engineRef.current?.runRenderLoop(() => {
         if (sceneRef.current) sceneRef.current.render();
@@ -21,10 +21,9 @@ export default function First() {
     return () => {
       if (engineRef.current) engineRef.current?.dispose();
     };
-  }, [canvasRef.current, engineRef.current, sceneRef]);
+  }, []);
 
-  const createScene = async function () {
-    const engine = engineRef.current;
+  const createScene = async function (engine: BABYLON.Engine) {
     if (!engine) return null;
     const scene = new BABYLON.Scene(engine);
 
@@ -73,7 +72,7 @@ export default function First() {
             considerations for modern plant nurseries
           </p>
         </div>
-        <div className="h-full w-full">
+        <div className="h-full w-full relative">
           <canvas
             ref={canvasRef}
             className="focus:outline-none h-full w-full"

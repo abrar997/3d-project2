@@ -29,7 +29,7 @@ const data = [
 
 export default function WorkShops() {
   return (
-    <div className="grid gap-4 lg:gap-10 bg-[#1c1b1b] rounded lg:p-6 lg:py-10 p-2">
+    <div className="grid gap-4 lg:gap-10 bg-dark rounded lg:p-6 lg:py-10 p-2">
       <div className="grid lg:gap-2 lg:items-center lg:justify-center lg:text-center">
         <h2 className="text-secondary text-sm">start with our</h2>
         <h1 className="lg:text-4xl text-2xl text-main font-header flex lg:text-center">
@@ -40,7 +40,6 @@ export default function WorkShops() {
         {data.map((item, index) => {
           const isFirstColumn = index % 3 === 0;
           const isLastColumn = (index + 1) % 3 === 0;
-          const isThreeItems = data.length === 3;
 
           return (
             <div

@@ -16,6 +16,7 @@ const config: Config = {
         main: "#eee",
         secondary: "#16A34A",
         text: "#D1D5DB",
+        dark: "#1c1b1b",
       },
       fontSize: {
         paragraph: "16px",
