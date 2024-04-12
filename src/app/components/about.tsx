@@ -2,7 +2,10 @@ import { PiPlant } from "react-icons/pi";
 
 export default function About() {
   return (
-    <div className="grid lg:grid-cols-4 gap-4 lg:gap-12 lg:items-end">
+    <div
+      className="grid lg:grid-cols-4 gap-4 lg:gap-12 lg:items-end"
+      id="about"
+    >
       <div className="col-span-2 flex flex-col lg:gap-2">
         <div className="flex flex-col gap-1">
           <h2 className="text-secondary">About Us</h2>

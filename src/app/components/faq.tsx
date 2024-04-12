@@ -47,7 +47,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="grid gap-4 lg:gap-10">
+    <div className="grid gap-4 lg:gap-10" id="faq">
       <div className="grid lg:gap-2 lg:items-center lg:justify-center lg:text-center">
         <h2 className="text-secondary text-sm">learn more about </h2>
         <h1 className="lg:text-4xl text-2xl text-main font-header flex lg:text-center capitalize">

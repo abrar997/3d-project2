@@ -2,7 +2,10 @@ import { PiPlant } from "react-icons/pi";
 
 export default function Events() {
   return (
-    <div className="grid lg:grid-cols-4 gap-4 lg:gap-12 lg:items-end">
+    <div
+      className="grid lg:grid-cols-4 gap-4 lg:gap-12 lg:items-end"
+      id="events"
+    >
       <div className="col-span-2">
         <img
           src="https://images.unsplash.com/photo-1599564576463-d038c6945bb5?q=80&w=1767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

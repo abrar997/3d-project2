@@ -29,7 +29,10 @@ const data = [
 
 export default function WorkShops() {
   return (
-    <div className="grid gap-4 lg:gap-10 bg-dark rounded lg:p-6 lg:py-10 p-2">
+    <div
+      id="workshops"
+      className="grid gap-4 lg:gap-10 bg-dark rounded lg:p-6 lg:py-10 p-2"
+    >
       <div className="grid lg:gap-2 lg:items-center lg:justify-center lg:text-center">
         <h2 className="text-secondary text-sm">start with our</h2>
         <h1 className="lg:text-4xl text-2xl text-main font-header flex lg:text-center">

@@ -10,14 +10,14 @@ const social = [
 ];
 export default function Footer() {
   return (
-    <div className="lg:p-12 lg:px-20 p-4 bg-dark grid gap-4 lg:grid-cols-2">
+    <div className="lg:py-12 lg:mt-28 lg:px-20 p-4 bg-dark grid gap-4 lg:grid-cols-2">
       <div className="grid lg:gap-6 gap-4">
         <div className="grid lg:gap-3">
           <Link href="/" className="flex text-3xl lg:text-4xl font-header">
-            A <PiPlant className="text-lg text-secondary" />
+            FA <PiPlant className="text-lg text-secondary" />
           </Link>
         </div>
-        <p className="hidden lg:flex font-header text-sm text-text gap-2">
+        <p className="hidden lg:flex font-header text-sm text-text gap-1">
           All rights reserved
           <a
             href="mailto:abraralrawi997@gmail.com"
@@ -33,7 +33,7 @@ export default function Footer() {
         <p className="lg:text-xl text-main font-header gap-3 flex text-left lg:text-center">
           Welcome to <span className="text-secondary">FA</span> Nursery Plant
         </p>
-        <div className="flex lg:gap-6 gap-3">
+        <div className="flex lg:gap-5 gap-3">
           {social.map((item) => (
             <Link
               href={item.link}

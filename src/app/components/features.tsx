@@ -15,7 +15,7 @@ const data = [
 ];
 export default function Features() {
   return (
-    <div className="grid lg:px-12 gap-4 lg:gap-10 lg:text-center">
+    <div className="grid lg:px-12 gap-4 lg:gap-10 lg:text-center" id="features">
       <div className="grid gap-2 lg:items-center lg:justify-center">
         <h2 className="text-secondary text-sm">you can have</h2>
         <h1 className="lg:text-4xl text-2xl text-main font-header flex lg:text-center">
