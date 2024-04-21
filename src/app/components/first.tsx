@@ -1,6 +1,7 @@
 import * as BABYLON from "@babylonjs/core";
 import { useEffect, useRef } from "react";
 import "@babylonjs/loaders";
+import Text from "./reusable/Text";
 
 export default function First() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -18,10 +19,21 @@ export default function First() {
       });
     }
     RenderScene();
+    window.addEventListener("resize", handleResize);
     return () => {
-      if (engineRef.current) engineRef.current?.dispose();
+      if (engineRef.current) {
+        engineRef.current.stopRenderLoop();
+        engineRef.current?.dispose();
+        sceneRef.current?.dispose();
+        window.removeEventListener("resize", handleResize);
+      }
     };
   }, []);
+
+  const handleResize = () => {
+    const engine = engineRef.current;
+    if (engine) engine.resize();
+  };
 
   const createScene = async function (engine: BABYLON.Engine) {
     if (!engine) return null;
@@ -59,19 +71,14 @@ export default function First() {
   return (
     <div id="home">
       <div className="lg:flex grid gap-12 lg:pt-12 lg:gap-0 justify-between items-center">
-        <div className="grid lg:gap-3 gap-1">
-          <h2 className="lg:text-2xl text-secondary gap-2 flex items-center">
-            Welcome ,
-          </h2>
-          <h1 className="lg:text-7xl text-4xl capitalize font-bold whitespace-nowrap font-title">
-            FA plant nursery
-          </h1>
-          <p className="text-sm lg:text-paragraph text-text lg:leading-6">
-            Sustainable practices, including water conservation, organic growing
+        <Text
+          subtitle=" Welcome ,"
+          title="FA plant nursery"
+          paragraph=" Sustainable practices, including water conservation, organic growing
             methods, and minimizing waste, are increasingly important
-            considerations for modern plant nurseries
-          </p>
-        </div>
+            considerations for modern plant nurseries"
+          isWelcome
+        />
         <div className="h-full w-full relative">
           <canvas
             ref={canvasRef}

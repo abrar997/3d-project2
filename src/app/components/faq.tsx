@@ -2,6 +2,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { PiPlant } from "react-icons/pi";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
+import Text from "./reusable/Text";
 const faqs = [
   {
     id: 1,
@@ -48,12 +49,7 @@ export default function FAQ() {
 
   return (
     <div className="grid gap-4 lg:gap-10" id="faq">
-      <div className="grid lg:gap-2 lg:items-center lg:justify-center lg:text-center">
-        <h2 className="text-secondary text-sm">learn more about </h2>
-        <h1 className="lg:text-4xl text-2xl text-main font-header flex lg:text-center capitalize">
-          our FAQs <PiPlant className="text-sm" />
-        </h1>
-      </div>
+      <Text title="Our FAQs" subtitle="Learn more about " isIcon isCenter />
       <div className="grid gap-4">
         {faqs.map((item) => {
           return (

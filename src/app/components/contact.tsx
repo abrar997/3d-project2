@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import "@babylonjs/loaders";
 import { PiPlant } from "react-icons/pi";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Text from "./reusable/Text";
 
 type Inputs = {
   email: string;
@@ -17,7 +18,6 @@ export default function Contact() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
@@ -36,16 +36,18 @@ export default function Contact() {
     }
     RenderScene();
     return () => {
-      if (engineRef.current) engineRef.current?.dispose();
+      if (engineRef.current) {
+        engineRef.current.stopRenderLoop();
+        sceneRef.current?.dispose();
+        engineRef.current.dispose();
+      }
     };
   }, []);
 
   const createScene = async function (engine: BABYLON.Engine) {
     if (!engine) return null;
     const scene = new BABYLON.Scene(engine);
-
     scene.createDefaultCamera(false, false, false);
-
     const light = new BABYLON.HemisphericLight(
       "",
       new BABYLON.Vector3(0, 0.1, 0),
@@ -78,12 +80,13 @@ export default function Contact() {
 
   return (
     <div className="grid gap-4 lg:gap-10" id="contact">
-      <div className="grid lg:gap-2 lg:items-center lg:justify-center lg:text-center">
-        <h2 className="text-secondary text-sm">We will be happy if you </h2>
-        <h1 className="lg:text-4xl text-2xl text-main font-header flex lg:text-center capitalize">
-          Contact Us <PiPlant className="text-sm" />
-        </h1>
-      </div>
+      <Text
+        title="Contact Us"
+        subtitle="We will be happy if you"
+        isIcon
+        isCenter
+      />
+
       <div>
         <div className="grid lg:grid-cols-4 lg:gap-12 gap-4 items-start">
           <div className="grid gap-4 col-span-2">
@@ -104,7 +107,7 @@ export default function Contact() {
             >
               <input
                 type="text"
-                className="w-full bg-transparent border rounded border-secondary outline-none p-2 placeholder:text-sm"
+                className="w-full bg-transparent border rounded border-gray-500 outline-none p-2 placeholder:text-sm"
                 placeholder="example@gmail.com"
                 {...register("email", { required: true })}
               />
@@ -112,14 +115,14 @@ export default function Contact() {
                 <p className="text-red-400 text-sm">email is required</p>
               )}
               <textarea
-                className="w-full bg-transparent border rounded border-secondary outline-none p-2 placeholder:text-sm"
+                className="w-full bg-transparent border rounded border-gray-500 outline-none p-2 placeholder:text-sm"
                 placeholder="your message"
                 {...register("message", { required: true })}
               />
               {errors.message && (
                 <p className="text-red-400 text-sm">message is required</p>
               )}
-              <button className="bg-secondary lg:w-24 hover:bg-opacity-70 transition-all duration-300 rounded py-2">
+              <button className="bg-green-800 lg:w-24 hover:bg-opacity-70 transition-all duration-300 rounded py-2">
                 send
               </button>
             </form>

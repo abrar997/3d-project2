@@ -1,4 +1,5 @@
 import { PiPlant } from "react-icons/pi";
+import Text from "./reusable/Text";
 
 export default function About() {
   return (
@@ -7,21 +8,18 @@ export default function About() {
       id="about"
     >
       <div className="col-span-2 flex flex-col lg:gap-2">
-        <div className="flex flex-col gap-1">
-          <h2 className="text-secondary">About Us</h2>
-          <h1 className="lg:text-4xl text-2xl font-header capitalize flex gap-1">
-            Let's tell you our story <PiPlant className="text-sm" />
-          </h1>
-        </div>
-        <p className="lg:text-paragraph text-sm text-text lg:leading-6">
-          At <span className="text-secondary">FA,</span> we are passionate about
+        <Text
+          title="Let's tell you our story"
+          subtitle="About Us"
+          paragraph=" At FA we are passionate about
           bringing the beauty of nature into your life. With a commitment to
           quality and customer satisfaction, we offer a diverse selection of
           plants carefully curated to suit every taste and need. Whether you're
           an experienced gardener or just starting your green journey, our team
           of experts is here to provide guidance and support every step of the
-          way.
-        </p>
+          way."
+          isIcon
+        />
       </div>
       <div className="col-span-2">
         <img

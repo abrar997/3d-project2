@@ -1,4 +1,5 @@
 import { PiPlant } from "react-icons/pi";
+import Text from "./reusable/Text";
 
 export default function Events() {
   return (
@@ -14,19 +15,16 @@ export default function Events() {
         />
       </div>
       <div className="col-span-2 flex flex-col gap-2">
-        <div className="flex flex-col lg:gap-1">
-          <h2 className="text-secondary">Events</h2>
-          <h1 className="lg:text-4xl text-2xl font-header capitalize flex gap-1">
-            Sustainability Initiatives <PiPlant className="text-sm" />
-          </h1>
-        </div>
-        <p className="lg:text-paragraph text-sm text-text lg:leading-6">
-          Many plant nurseries are embracing sustainable practices, such as
+        <Text
+          subtitle="Events"
+          title="Sustainability Initiatives"
+          paragraph="Many plant nurseries are embracing sustainable practices, such as
           using organic fertilizers, reducing water consumption, and
           implementing renewable energy sources. News about innovative
           sustainability initiatives within the industry can inspire other
-          nurseries to adopt similar practices.
-        </p>
+          nurseries to adopt similar practices."
+          isIcon
+        />
       </div>
     </div>
   );

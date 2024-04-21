@@ -1,4 +1,5 @@
 import { PiPlant } from "react-icons/pi";
+import Text from "./reusable/Text";
 
 const data = [
   {
@@ -33,12 +34,7 @@ export default function WorkShops() {
       id="workshops"
       className="grid gap-4 lg:gap-10 bg-dark rounded lg:p-6 lg:py-10 p-2"
     >
-      <div className="grid lg:gap-2 lg:items-center lg:justify-center lg:text-center">
-        <h2 className="text-secondary text-sm">start with our</h2>
-        <h1 className="lg:text-4xl text-2xl text-main font-header flex lg:text-center">
-          Workshops <PiPlant className="text-sm" />
-        </h1>
-      </div>
+      <Text title="Workshops" subtitle="start with our" isCenter isIcon />
       <div className="grid lg:grid-cols-3 gap-6 lg:gap-4">
         {data.map((item, index) => {
           const isFirstColumn = index % 3 === 0;
@@ -65,7 +61,7 @@ export default function WorkShops() {
                   <p className="lg:text-2xl text-lg text-slate-200 font-header">
                     {item.title}
                   </p>
-                  <p className="text-[#ffb6dd] text-xl font-title">
+                  <p className="text-red-400 text-xl font-title">
                     price : {item.price}
                   </p>
                 </div>
