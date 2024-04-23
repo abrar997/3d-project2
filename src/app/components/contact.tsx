@@ -126,7 +126,7 @@ export default function Contact() {
               </button>
             </form>
           </div>
-          <div className="hidden lg:flex items-center justify-center w-full col-span-2 relative">
+          <div className="flex items-center justify-center w-full col-span-2 relative">
             <canvas
               className="h-full w-full focus:outline-none"
               ref={canvasRef}

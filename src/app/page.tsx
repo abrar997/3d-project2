@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <div className="bg-[#0c0c0c] text-main">
       <Header />
-      <div className="grid lg:gap-28 gap-12 lg:p-12 lg:px-20 p-4">
+      <div className="grid lg:gap-28 gap-6 lg:p-12 lg:px-20 p-4">
         <First />
         <Features />
         <About />
