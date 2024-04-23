@@ -23,11 +23,10 @@ export default function Features() {
         isCenter
       />
       <div className="lg:grid flex flex-wrap lg:grid-cols-5 lg:gap-6 gap-3">
-        {data.map((item, index) => (
+        {data.map((item) => (
           <div
             key={item.id}
-            className={`flex lg:flex-col gap-1 lg:gap-3 items-end w-full lg:items-center lg:justify-center border p-2 lg:p-4 rounded-lg border-secondary   
-            `}
+            className="flex lg:flex-col gap-1 lg:gap-3 items-end w-full lg:items-center lg:justify-center border p-2 lg:p-4 rounded-lg border-secondary"
           >
             <div className="text-secondary text-3xl lg:text-5xl">
               {item.icon}
