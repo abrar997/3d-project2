@@ -93,12 +93,12 @@ export default function Contact() {
               We value your feedback and inquiries! Whether you have questions
               about our products, need gardening advice, or want to inquire
               about our services, our team at FA is here to assist you. Feel
-              free to reach out to us through the contact form below, and we'll
-              get back to you as soon as possible. Alternatively, you can visit
-              our nursery in person during our operating hours to speak with our
-              knowledgeable staff directly. We're passionate about helping you
-              cultivate your green spaces and look forward to hearing from you
-              soon!
+              free to reach out to us through the contact form below, and we
+              will get back to you as soon as possible. Alternatively, you can
+              visit our nursery in person during our operating hours to speak
+              with our knowledgeable staff directly. We are passionate about
+              helping you cultivate your green spaces and look forward to
+              hearing from you soon!
             </p>
             <form
               className="grid gap-4 text-sm"
