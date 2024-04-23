@@ -1,7 +1,6 @@
 import * as BABYLON from "@babylonjs/core";
 import { useEffect, useRef } from "react";
 import "@babylonjs/loaders";
-import { PiPlant } from "react-icons/pi";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Text from "./reusable/Text";
 

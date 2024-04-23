@@ -1,7 +1,6 @@
 import { Popover, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { PiPlant } from "react-icons/pi";
-import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import Text from "./reusable/Text";
 const faqs = [
   {

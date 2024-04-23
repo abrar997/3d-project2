@@ -4,7 +4,6 @@ import {
   GiPlantWatering,
   GiStumpRegrowth,
 } from "react-icons/gi";
-import { PiPlant } from "react-icons/pi";
 import { TbGrowth } from "react-icons/tb";
 import Text from "./reusable/Text";
 const data = [

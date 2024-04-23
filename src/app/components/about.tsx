@@ -1,4 +1,3 @@
-import { PiPlant } from "react-icons/pi";
 import Text from "./reusable/Text";
 
 export default function About() {
