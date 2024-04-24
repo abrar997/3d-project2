@@ -73,8 +73,8 @@ export default function FAQ() {
                 <Transition
                   as={Fragment}
                   enter="transition ease-in duration-300"
-                  enterFrom="opacity-0 translate-y-1"
-                  enterTo="opacity-100 translate-y-0"
+                  enterFrom="transform opacity-0 translate-y-1"
+                  enterTo="transform opacity-100 translate-y-0"
                   leave="transition ease-in duration-300"
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-1"
