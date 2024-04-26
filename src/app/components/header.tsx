@@ -52,7 +52,7 @@ export default function Header() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute rounded right-3 origin-top-right grid bg-dark items-start w-60 h-56 text-left p-2 mt-2 divide-y divide-gray-600">
+          <Menu.Items className="absolute rounded right-3 focus:outline-none origin-top-right grid bg-dark items-start w-60 h-56 text-left p-2 mt-2 divide-y divide-gray-600">
             {links.map((item) => (
               <Menu.Item key={item.id}>
                 <a
