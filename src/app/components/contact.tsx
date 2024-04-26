@@ -104,23 +104,31 @@ export default function Contact() {
               className="grid gap-4 text-sm"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <input
-                type="text"
-                className="w-full bg-transparent border rounded border-gray-500 outline-none p-2 placeholder:text-sm"
-                placeholder="example@gmail.com"
-                {...register("email", { required: true })}
-              />
-              {errors.email && (
-                <p className="text-red-400 text-sm">email is required</p>
-              )}
-              <textarea
-                className="w-full bg-transparent border rounded border-gray-500 outline-none p-2 placeholder:text-sm"
-                placeholder="your message"
-                {...register("message", { required: true })}
-              />
-              {errors.message && (
-                <p className="text-red-400 text-sm">message is required</p>
-              )}
+              <div>
+                <input
+                  type="text"
+                  className="w-full bg-transparent border rounded border-gray-500 outline-none p-2 placeholder:text-sm"
+                  placeholder="example@gmail.com"
+                  {...register("email", { required: true })}
+                />
+                {errors.email && (
+                  <p className="text-red-400 pl-1 text-[10px] lg:mt-0.5">
+                    email is required
+                  </p>
+                )}
+              </div>
+              <div>
+                <textarea
+                  className="w-full bg-transparent border rounded border-gray-500 outline-none p-2 placeholder:text-sm"
+                  placeholder="your message"
+                  {...register("message", { required: true })}
+                />
+                {errors.message && (
+                  <p className="text-red-400 pl-1 text-[10px] lg:mt-0.5">
+                    message is required
+                  </p>
+                )}
+              </div>
               <button className="bg-green-800 lg:w-24 hover:bg-opacity-70 transition-all duration-300 rounded py-2">
                 send
               </button>

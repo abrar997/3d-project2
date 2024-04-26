@@ -52,14 +52,14 @@ export default function Header() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute rounded right-0 origin-top-right grid bg-dark items-start w-60 h-60 text-left p-2 mt-2 divide-y divide-gray-600">
+          <Menu.Items className="absolute rounded right-3 origin-top-right grid bg-dark items-start w-60 h-56 text-left p-2 mt-2 divide-y divide-gray-600">
             {links.map((item) => (
               <Menu.Item key={item.id}>
                 <a
                   href={`#${item.path}`}
                   className="hover:opacity-80 flex gap-2 group items-center px-1 transition-all py-0.5 hover:bg-green-100 hover:text-black duration-300 cursor-pointer"
                 >
-                  <PiPlant className="text-sm group-hover:text-secondary" />
+                  <PiPlant className="text-sm group-hover:text-secondary " />
                   {item.name}
                 </a>
               </Menu.Item>
