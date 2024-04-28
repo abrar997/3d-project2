@@ -33,12 +33,12 @@ export default function Footer() {
         <p className="lg:text-xl text-main font-header gap-1 lg:gap-3 flex text-left lg:text-center">
           Welcome to <span className="text-secondary">FA</span> Nursery Plant
         </p>
-        <div className="flex lg:gap-5 gap-3">
+        <div className="flex lg:gap-4 gap-3">
           {social.map((item) => (
             <Link
               href={item.link}
               key={item.id}
-              className="border-secondary border p-2 hover:bg-green-700"
+              className="border-secondary border p-2 hover:bg-green-900 hover:border-main transition-all duration-300 rounded"
             >
               {item.icon}
             </Link>

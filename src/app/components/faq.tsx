@@ -2,6 +2,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { PiPlant } from "react-icons/pi";
 import Text from "./reusable/Text";
+import { motion } from "framer-motion";
 const faqs = [
   {
     id: 1,
@@ -50,41 +51,46 @@ export default function FAQ() {
     <div className="grid gap-4 lg:gap-10" id="faq">
       <Text title="Our FAQs" subtitle="Learn more about " isIcon isCenter />
       <div className="grid gap-4">
-        {faqs.map((item) => {
+        {faqs.map((item, index) => {
           return (
-            <Popover
+            <motion.div
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
+              transition={{ duration: index * 0.1 + 0.5 }}
+              viewport={{ once: true }}
               key={item.id}
-              className="rounded border lg:border-b border-gray-500 transition-all duration-300 grid gap-3 py-2 lg:py-4 px-2"
             >
-              <Popover.Button
-                onClick={() => OpenItem(item.id)}
-                className="focus:outline-none"
-              >
-                <div className="flex justify-between pr-2 items-start">
-                  <p className="text-slate-300 lg:text-paragraph text-sm text-left">
-                    {item.title}
-                  </p>
-                  <span>
-                    <PiPlant />
-                  </span>
-                </div>
-              </Popover.Button>
-              {item.id === isOpen && (
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-in duration-300"
-                  enterFrom="transform opacity-0 translate-y-1"
-                  enterTo="transform opacity-100 translate-y-0"
-                  leave="transition ease-in duration-300"
-                  leaveFrom="opacity-100 translate-y-0"
-                  leaveTo="opacity-0 translate-y-1"
+              <Popover className="rounded border lg:border-b border-gray-500 transition-all duration-300 grid gap-3 py-2 lg:py-4 px-2">
+                <Popover.Button
+                  onClick={() => OpenItem(item.id)}
+                  className="focus:outline-none"
                 >
-                  <Popover.Panel className="text-sm text-gray-400 lg:py-4 py-2">
-                    {item.description}
-                  </Popover.Panel>
-                </Transition>
-              )}
-            </Popover>
+                  <div className="flex justify-between pr-2 items-start">
+                    <p className="text-slate-300 lg:text-paragraph text-sm text-left">
+                      {item.title}
+                    </p>
+                    <span>
+                      <PiPlant />
+                    </span>
+                  </div>
+                </Popover.Button>
+                {item.id === isOpen && (
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-in duration-300"
+                    enterFrom="transform opacity-0 translate-y-1"
+                    enterTo="transform opacity-100 translate-y-0"
+                    leave="transition ease-in duration-300"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="text-sm text-gray-400 lg:py-4 py-2">
+                      {item.description}
+                    </Popover.Panel>
+                  </Transition>
+                )}
+              </Popover>
+            </motion.div>
           );
         })}
       </div>

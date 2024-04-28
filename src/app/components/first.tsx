@@ -2,7 +2,6 @@ import * as BABYLON from "@babylonjs/core";
 import { useEffect, useRef } from "react";
 import "@babylonjs/loaders";
 import Text from "./reusable/Text";
-
 export default function First() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const sceneRef = useRef<BABYLON.Scene | null>(null);
@@ -28,7 +27,7 @@ export default function First() {
         window.removeEventListener("resize", handleResize);
       }
     };
-  }, []);
+  }, [sceneRef.current, canvasRef.current, engineRef.current]);
 
   const handleResize = () => {
     const engine = engineRef.current;
@@ -47,23 +46,24 @@ export default function First() {
       scene
     );
     light.specular = BABYLON.Color3.FromHexString("#16A34A");
-    const plant = await BABYLON.SceneLoader.ImportMeshAsync(
-      null,
-      "./items/",
-      "ear.glb"
-    );
-    plant.meshes[0].position = new BABYLON.Vector3(-0.3, -0.3, 0);
-    plant.meshes[0].scaling = new BABYLON.Vector3(0.45, 0.55, 0.45);
-    plant.meshes[0].rotation = new BABYLON.Vector3(0, -2.5, 0);
-    const ground = await BABYLON.SceneLoader.ImportMeshAsync(
-      null,
-      "./items/",
-      "weed.glb"
-    );
-    ground.meshes[0].position = new BABYLON.Vector3(0.01, -0.3, 0.1);
-    ground.meshes[0].scaling = new BABYLON.Vector3(0.42, 0.2, 0.2);
-    ground.meshes[0].rotation = new BABYLON.Vector3(-0, -2.9, -0.1);
-
+    if (canvasRef.current) {
+      const plant = await BABYLON.SceneLoader.ImportMeshAsync(
+        null,
+        "./items/",
+        "ear.glb"
+      );
+      plant.meshes[0].position = new BABYLON.Vector3(-0.3, -0.3, 0);
+      plant.meshes[0].scaling = new BABYLON.Vector3(0.45, 0.55, 0.45);
+      plant.meshes[0].rotation = new BABYLON.Vector3(0, -2.5, 0);
+      const ground = await BABYLON.SceneLoader.ImportMeshAsync(
+        null,
+        "./items/",
+        "weed.glb"
+      );
+      ground.meshes[0].position = new BABYLON.Vector3(0.01, -0.3, 0.1);
+      ground.meshes[0].scaling = new BABYLON.Vector3(0.42, 0.2, 0.2);
+      ground.meshes[0].rotation = new BABYLON.Vector3(-0, -2.9, -0.1);
+    }
     scene.clearColor = BABYLON.Color4.FromHexString("#0c0c0c");
 
     return scene;
@@ -71,14 +71,16 @@ export default function First() {
   return (
     <div id="home">
       <div className="lg:flex grid gap-12 lg:pt-12 lg:gap-0 justify-between items-center">
-        <Text
-          subtitle=" Welcome ,"
-          title="FA plant nursery"
-          paragraph=" Sustainable practices, including water conservation, organic growing
+        <div>
+          <Text
+            subtitle=" Welcome ,"
+            title="FA plant nursery"
+            paragraph=" Sustainable practices, including water conservation, organic growing
             methods, and minimizing waste, are increasingly important
             considerations for modern plant nurseries"
-          isWelcome
-        />
+            isWelcome
+          />
+        </div>
         <div className="h-full w-full relative">
           <canvas
             ref={canvasRef}

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   GiFlowerPot,
   GiPlantSeed,
@@ -15,7 +16,7 @@ const data = [
 ];
 export default function Features() {
   return (
-    <div className="grid lg:px-12 gap-4 lg:gap-10 lg:text-center" id="features">
+    <div className="grid gap-4 lg:gap-10 lg:text-center" id="features">
       <Text
         title="Featured Categories"
         subtitle="you can have"
@@ -23,8 +24,12 @@ export default function Features() {
         isCenter
       />
       <div className="lg:grid flex flex-wrap lg:grid-cols-5 lg:gap-6 gap-3">
-        {data.map((item) => (
-          <div
+        {data.map((item, index) => (
+          <motion.div
+            initial={{ y: 150 }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: index * 0.1 + 0.3 }}
+            viewport={{ once: true }}
             key={item.id}
             className="flex lg:flex-col gap-1 lg:gap-3 items-end w-full lg:items-center lg:justify-center border p-2 lg:p-4 rounded-lg border-secondary"
           >
@@ -32,7 +37,7 @@ export default function Features() {
               {item.icon}
             </div>
             <p className="text-paragraph">{item.text}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

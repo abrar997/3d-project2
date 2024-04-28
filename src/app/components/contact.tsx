@@ -41,7 +41,7 @@ export default function Contact() {
         engineRef.current.dispose();
       }
     };
-  }, []);
+  }, [sceneRef.current, canvasRef.current, engineRef.current]);
 
   const createScene = async function (engine: BABYLON.Engine) {
     if (!engine) return null;

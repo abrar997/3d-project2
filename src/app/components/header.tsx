@@ -15,7 +15,10 @@ const links = [
 
 export default function Header() {
   return (
-    <div className="flex items-center bg-transparent font-header justify-between lg:px-20 p-4 lg:py-4 text-main inset-x-0">
+    <div
+      id="header"
+      className="flex items-center bg-transparent font-header justify-between lg:px-20 p-4 lg:py-4 text-main inset-x-0"
+    >
       <Link
         to="/"
         duration={300}

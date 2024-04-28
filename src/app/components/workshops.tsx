@@ -1,5 +1,5 @@
 import Text from "./reusable/Text";
-
+import { motion } from "framer-motion";
 const data = [
   {
     id: 1,
@@ -40,7 +40,11 @@ export default function WorkShops() {
           const isLastColumn = (index + 1) % 3 === 0;
 
           return (
-            <div
+            <motion.div
+              initial={{ y: 150 }}
+              whileInView={{ y: 0 }}
+              transition={{ duration: index * 0.1 + 0.5 }}
+              viewport={{ once: true }}
               key={item.id}
               className={`flex flex-col h-full gap-y-2 border border-secondary
                 ${
@@ -76,7 +80,7 @@ export default function WorkShops() {
                   start now
                 </button>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
