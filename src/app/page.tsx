@@ -12,9 +12,16 @@ import Contact from "./components/contact";
 import Footer from "./components/footer";
 import { Link } from "react-scroll";
 import { TiArrowUpThick } from "react-icons/ti";
+import { ScaleLoader } from "react-spinners";
 
 export default function Page() {
   const [showArrow, setShowArrow] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 6000);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,39 +46,52 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="bg-[#0c0c0c] text-main relative">
-      <Header />
-      <div className="grid lg:gap-28 gap-6 lg:p-12 lg:px-20 p-4">
-        <First />
-        <Features />
-        <About />
-        <Events />
-        <WorkShops />
-        <FAQ />
-        <Contact />
-        <AnimatePresence>
-          {showArrow && (
-            <motion.div
-              key="arrow"
-              initial={{ x: 50 }}
-              animate={{ x: 0 }}
-              exit={{ x: 60 }}
-              transition={{ duration: 0.2 }}
-              className="fixed bottom-12 lg:bottom-32 right-4 lg:right-6 bg-secondary shadow-lg rounded-full text-white"
-            >
-              <Link
-                to="header"
-                className="cursor-pointer lg:w-10 w-8 h-8 lg:h-10 flex items-center justify-center"
-                duration="300"
-                smooth
-              >
-                <TiArrowUpThick />
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-      <Footer />
-    </div>
+    <>
+      {loading ? (
+        <div className="flex items-center justify-center h-screen bg-[#0c0c0c]">
+          <ScaleLoader
+            color="#16A34A"
+            height={120}
+            width={5}
+            loading={loading}
+          />
+        </div>
+      ) : (
+        <div className="bg-[#0c0c0c] text-main relative">
+          <Header />
+          <div className="grid lg:gap-28 gap-6 lg:p-12 lg:px-20 p-4">
+            <First />
+            <Features />
+            <About />
+            <Events />
+            <WorkShops />
+            <FAQ />
+            <Contact />
+            <AnimatePresence>
+              {showArrow && (
+                <motion.div
+                  key="arrow"
+                  initial={{ x: 50 }}
+                  animate={{ x: 0 }}
+                  exit={{ x: 60 }}
+                  transition={{ duration: 0.2 }}
+                  className="fixed bottom-12 lg:bottom-32 right-4 lg:right-6 bg-secondary shadow-lg rounded-full text-white"
+                >
+                  <Link
+                    to="header"
+                    className="cursor-pointer lg:w-10 w-8 h-8 lg:h-10 flex items-center justify-center"
+                    duration="300"
+                    smooth
+                  >
+                    <TiArrowUpThick />
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          <Footer />
+        </div>
+      )}
+    </>
   );
 }

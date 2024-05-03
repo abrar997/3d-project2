@@ -2,42 +2,38 @@ import * as BABYLON from "@babylonjs/core";
 import { useEffect, useRef } from "react";
 import "@babylonjs/loaders";
 import Text from "./reusable/Text";
+
 export default function First() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const sceneRef = useRef<BABYLON.Scene | null>(null);
   const engineRef = useRef<BABYLON.Engine | null>(null);
 
   useEffect(() => {
-    async function RenderScene() {
+    async function renderScene() {
       if (canvasRef.current) {
         engineRef.current = new BABYLON.Engine(canvasRef.current, true);
         sceneRef.current = await createScene(engineRef.current);
+        engineRef.current.runRenderLoop(() => {
+          if (sceneRef.current) sceneRef.current.render();
+        });
       }
-      engineRef.current?.runRenderLoop(() => {
-        if (sceneRef.current) sceneRef.current.render();
-      });
     }
-    RenderScene();
-    window.addEventListener("resize", handleResize);
+
+    renderScene();
+
     return () => {
       if (engineRef.current) {
         engineRef.current.stopRenderLoop();
-        engineRef.current?.dispose();
         sceneRef.current?.dispose();
-        window.removeEventListener("resize", handleResize);
+        engineRef.current.dispose();
       }
     };
-  }, [sceneRef.current, canvasRef.current, engineRef.current]);
-
-  const handleResize = () => {
-    const engine = engineRef.current;
-    if (engine) engine.resize();
-  };
+  }, []);
 
   const createScene = async function (engine: BABYLON.Engine) {
     if (!engine) return null;
-    const scene = new BABYLON.Scene(engine);
 
+    const scene = new BABYLON.Scene(engine);
     scene.createDefaultCamera(false, false, false);
 
     const light = new BABYLON.HemisphericLight(
@@ -46,28 +42,32 @@ export default function First() {
       scene
     );
     light.specular = BABYLON.Color3.FromHexString("#16A34A");
-    if (canvasRef.current) {
-      const plant = await BABYLON.SceneLoader.ImportMeshAsync(
-        null,
-        "./items/",
-        "ear.glb"
-      );
-      plant.meshes[0].position = new BABYLON.Vector3(-0.3, -0.3, 0);
-      plant.meshes[0].scaling = new BABYLON.Vector3(0.45, 0.55, 0.45);
-      plant.meshes[0].rotation = new BABYLON.Vector3(0, -2.5, 0);
-      const ground = await BABYLON.SceneLoader.ImportMeshAsync(
-        null,
-        "./items/",
-        "weed.glb"
-      );
-      ground.meshes[0].position = new BABYLON.Vector3(0.01, -0.3, 0.1);
-      ground.meshes[0].scaling = new BABYLON.Vector3(0.42, 0.2, 0.2);
-      ground.meshes[0].rotation = new BABYLON.Vector3(-0, -2.9, -0.1);
-    }
+
+    const plant = await BABYLON.SceneLoader.ImportMeshAsync(
+      null,
+      "./items/",
+      "ear.glb",
+      scene
+    );
+    plant.meshes[0].position = new BABYLON.Vector3(-0.3, -0.3, 0);
+    plant.meshes[0].scaling = new BABYLON.Vector3(0.45, 0.55, 0.45);
+    plant.meshes[0].rotation = new BABYLON.Vector3(0, -2.5, 0);
+
+    const ground = await BABYLON.SceneLoader.ImportMeshAsync(
+      null,
+      "./items/",
+      "weed.glb",
+      scene
+    );
+    ground.meshes[0].position = new BABYLON.Vector3(0.01, -0.3, 0.1);
+    ground.meshes[0].scaling = new BABYLON.Vector3(0.42, 0.2, 0.2);
+    ground.meshes[0].rotation = new BABYLON.Vector3(0, -2.9, -0.1);
+
     scene.clearColor = BABYLON.Color4.FromHexString("#0c0c0c");
 
     return scene;
   };
+
   return (
     <div id="home">
       <div className="lg:flex grid gap-12 lg:pt-12 lg:gap-0 justify-between items-center">
