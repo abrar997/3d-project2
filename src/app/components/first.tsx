@@ -20,7 +20,6 @@ export default function First() {
     }
 
     renderScene();
-
     return () => {
       if (engineRef.current) {
         engineRef.current.stopRenderLoop();
