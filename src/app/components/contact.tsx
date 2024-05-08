@@ -28,10 +28,10 @@ export default function Contact() {
       if (canvasRef.current) {
         engineRef.current = new BABYLON.Engine(canvasRef.current, true);
         sceneRef.current = await createScene(engineRef.current);
-        engineRef.current?.runRenderLoop(() => {
-          if (sceneRef.current) sceneRef.current.render();
-        });
       }
+      engineRef.current?.runRenderLoop(() => {
+        if (sceneRef.current) sceneRef.current.render();
+      });
     }
     RenderScene();
     return () => {
@@ -41,7 +41,7 @@ export default function Contact() {
         engineRef.current.dispose();
       }
     };
-  }, []);
+  }, [sceneRef.current, canvasRef.current, engineRef.current]);
 
   const createScene = async function (engine: BABYLON.Engine) {
     if (!engine) return null;
