@@ -12,7 +12,6 @@ import Contact from "./components/contact";
 import Footer from "./components/footer";
 import { Link } from "react-scroll";
 import { TiArrowUpThick } from "react-icons/ti";
-import { ScaleLoader } from "react-spinners";
 
 export default function Page() {
   const [showArrow, setShowArrow] = useState(false);
